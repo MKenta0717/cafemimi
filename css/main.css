@@ -238,7 +238,7 @@ footer small {
 @media (max-width: 1300px) {
   #news .caption {
     flex-direction: column;
-    gap: 2px;
+    gap: 10px;
     margin-bottom: 10px;
   }
 }
@@ -329,7 +329,8 @@ footer small {
 
   #access dd {
     font-size: 12px;
-    transform: translateY(-1px);
+    color:red;
+    transform: translateY(-3px);
   }
 
   #access .map iframe {
