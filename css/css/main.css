@@ -150,10 +150,8 @@ header .menu span::after {
 #news .content .date p {
   font-size: 16px;
   color: #FFFFFF;
-  line-height: 17px;
   background: #219d61;
   border-radius: 30px; 
-  height:20px;
   padding: 4px 24px;
 }
 
