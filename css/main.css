@@ -146,20 +146,15 @@ header .menu span::after {
   gap: 10px;
 }
 
-#news .content .date {
-  background: #219d61;
-  border-radius: 30px;  
-  display: flex;
-  align-items: center;
-  flex-direction: center;
-  height:20px;
-  padding: 3px 24px;
-}
 
 #news .content .date p {
   font-size: 16px;
   color: #FFFFFF;
-  line-height: 0px;
+  line-height: 17px;
+  background: #219d61;
+  border-radius: 30px; 
+  height:20px;
+  padding: 4px 24px;
 }
 
 #news li h2 {
@@ -206,7 +201,7 @@ header .menu span::after {
 
 #access dl {
   display: flex;
-  gap:5%;
+  gap:15px 5%;
   flex-wrap: wrap;
   max-width: 400px;
   transform: translateY(-40%);
@@ -303,6 +298,7 @@ footer small {
   }
 
   #access dl {
+    gap:5px 5%;
     transform: translateY(0);
   }
 
@@ -334,6 +330,7 @@ footer small {
 
   #access dd {
     font-size: 12px;
+    transform: translateY(-1px);
   }
 
   #access .map iframe {
