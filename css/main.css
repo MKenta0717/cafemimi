@@ -148,10 +148,10 @@ header .menu span::after {
 
 #news .content .date {
   font-size: 16px;
-  padding: 4px 25px 4px;
+  padding: 0 25px ;
   background: #219d61;
   border-radius: 30px;
-  color: #ffffff;
+  color: red;
 }
 
 #news li h2 {
