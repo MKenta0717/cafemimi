@@ -152,13 +152,14 @@ header .menu span::after {
   display: flex;
   align-items: center;
   flex-direction: center;
-  padding: 4px 24px;
+  height:20px;
+  padding: 3px 24px;
 }
 
 #news .content .date p {
   font-size: 16px;
   color: #FFFFFF;
-
+  line-height: 0px;
 }
 
 #news li h2 {
