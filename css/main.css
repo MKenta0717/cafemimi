@@ -147,11 +147,18 @@ header .menu span::after {
 }
 
 #news .content .date {
-  font-size: 16px;
-  padding: 0 25px ;
   background: #219d61;
-  border-radius: 30px;
-  color: red;
+  border-radius: 30px;  
+  display: flex;
+  align-items: center;
+  flex-direction: center;
+  padding: 4px 24px;
+}
+
+#news .content .date p {
+  font-size: 16px;
+  color: #FFFFFF;
+
 }
 
 #news li h2 {
