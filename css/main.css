@@ -63,42 +63,43 @@ header .nav ul li + li {
 
 header .menu {
   position: absolute;
-  top: 0;
-  right: 0;
+  top: 0px;
+  right: -2px;
   width: 70px;
   height: 63px;
   background: #ffffff;
 }
 
-header .menu span {
+header .menu .center_border {
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  display: inline-block;
-  width: 28px;
+  width: 35px;
   height: 2px;
   background: #232121;
+ 
 }
 
-header .menu span::before {
+header .menu .center_border::before {
   position: absolute;
   top: -11px;
   left: 0;
   content: "";
-  width: 28px;
+  width: 35px;
   height: 2px;
-  background: inherit;
+  background: #232121;
+  z-index: 1;
 }
 
-header .menu span::after {
+header .menu .center_border::after {
   position: absolute;
   top: 11px;
   left: 0;
   content: "";
-  width: 28px;
+  width: 35px;
   height: 2px;
-  background: inherit;
+  background: #232121;
 }
 
 /* hero */
@@ -173,6 +174,7 @@ header .menu span::after {
 }
 
 /* access */
+
 #access h1 {
   text-align: center;
   margin-bottom: 24px;
@@ -186,7 +188,7 @@ header .menu span::after {
   justify-content: center;
   align-items: center;
   gap: 5%;
-
+  z-index: 0;
   height: auto;
   background: #e8eae9;
 }
@@ -203,7 +205,6 @@ header .menu span::after {
   gap:15px 5%;
   flex-wrap: wrap;
   max-width: 400px;
-  transform: translateY(-40%);
 }
 
 #access dt {
@@ -254,7 +255,7 @@ footer small {
 
  header .menu {
    background: #219d61;
-   
+   position: fixed;
  }
 
  header .menu span {
@@ -298,7 +299,8 @@ footer small {
 
   #access dl {
     gap:5px 5%;
-    transform: translateY(0);
+   
+    
   }
 
 
@@ -309,7 +311,72 @@ footer small {
     display: flex;
     flex-direction: column;
     gap:0px;
+
+  }
+
+  .menu .center_border::before,::after {
+    transition: all 0.6s ;
+  }
+  
+
+  .menu.open .center_border::before{
+    top: 0px;
+    transform: rotate(135deg);
+  }
+  
+  .menu.open .center_border::after{
+    top: 0px;
+    transform: rotate(-135deg);
+  }
+
+  .menu.open .center_border{
+    background: transparent;
+  }
+
+  
+
+  
+  .menu {
+    position: fixed;
+    overflow: hidden;
+    z-index: 999;
+  }
+
+  .circle_menu {
+    position: absolute;
+    top:-69px;
+    right:-56px;
+    width: 70px;
+    height: 70px;
+    background: #FFFFFF;
+    border-radius: 40%;
+    transition: all 1s;
+    transform: scale(0);
+   
+  }
+
+
+  .circle_menu.active {
+    transform: scale(10);
+  }
+
+  .circle_bg{
     
+    position: fixed;
+    top: -35px;
+    right: -35px;
+    width: 70px;
+    height: 70px;
+    background:#219d61;
+    opacity: 0.9;
+    border-radius: 40%;
+    transition: all 1s;
+    transform: scale(0);
+  }
+
+  .circle_bg.active {
+    transform: scale(8);
+    /* border-radius: 0; */
   }
 
   #news .content {
@@ -322,6 +389,7 @@ footer small {
 
   #access dl {
     margin: 0 0 20px;
+    
   }
   #access dt {
     font-size: 17.6px;
@@ -329,7 +397,8 @@ footer small {
 
   #access dd {
     font-size: 12px;
-    transform: translateY(-3px);
+    
+    
   }
 
   #access .map iframe {
