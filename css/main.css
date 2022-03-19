@@ -1,3 +1,5 @@
+ /* ----- [common] ----- */
+
 body {
   font-family: "Mirza", cursive;
 }
@@ -28,13 +30,20 @@ img {
   vertical-align: bottom;
 }
 
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+
+
 .wrapper {
   max-width: 1300px;
   margin: 0 auto;
   padding: 0 30px;
 }
 
-/* header */
+ /* ----- [header] ----- */
 
 header {
   position: relative;
@@ -44,7 +53,7 @@ header {
   text-align: center;
 }
 
-.nav {
+header .nav {
   display: inline-block;
   height: 100%;
 }
@@ -69,11 +78,50 @@ header .nav ul li + li {
 header .menu {
   position: absolute;
   top: 0px;
-  right: -2px;
+  right: 0px;
   width: 70px;
   height: 63px;
   background: #ffffff;
 }
+
+header .menu.open {
+  animation: animate 1.3s ease 0s forwards,color 3.0s ease 1.3s forwards;
+}
+
+@keyframes animate {
+  0% {
+    transform: translate(0px, 0px);
+  }
+
+  20% {
+    border-radius: 50%;
+    background: #219d61;
+    transform: translate(0px, 0px);
+  }
+
+  
+
+  100%{
+    border-radius: 50%;
+    background: #219d61;
+    transform: translate(-50px, 130px);
+
+  }
+}
+
+@keyframes color{
+  0%{
+    border-radius: 50%;
+    background: #219d61;
+    transform: translate(-50px, 130px);
+  }
+  100%{
+    border-radius: 50%;
+    background: #FFFFFF;
+    transform: translate(-50px, 130px);
+  }
+}
+
 
 header .menu .center_border {
   position: absolute;
@@ -106,7 +154,90 @@ header .menu .center_border::after {
   background: #232121;
 }
 
-/* hero */
+header .menu ul li {
+  transform: scale(0);
+  position: absolute;
+  width: 66px;
+  height: 66px;
+  border-radius: 50%;
+  /* border: solid 1px black; */
+  line-height: 50px;
+  color: #FFFFFF;
+}
+
+header .menu ul li i {
+  position: relative;
+  top: -4px;
+  font-size: 18px;
+}
+
+
+header .menu ul li p {
+  line-height: 1px;
+  position: relative;
+  top: -13px;
+  font-size: 20px;
+}
+
+
+header .menu.open ul li:nth-child(1) {
+  animation: li-animate1 .6s ease 1.5s forwards;
+}
+header .menu.open ul li:nth-child(2) {
+  animation: li-animate2 .6s ease 1.8s forwards;
+}
+header .menu.open ul li:nth-child(3) {
+  animation: li-animate3 .6s ease 2.1s forwards;
+}
+header .menu.open ul li:nth-child(4) {
+  animation: li-animate4 .6s ease 2.4s forwards;
+}
+
+@keyframes li-animate1 {
+  0%{
+    transform: translate(0px,0px) scale(0);
+    
+  }
+  100%{
+    background: #219d61;
+    transform: translate(-87px,-50px) scale(0.9) ;
+  }
+}
+@keyframes li-animate2 {
+  0%{
+    transform: translate(0px,0px) scale(0);
+    
+  }
+  100%{
+    background: #219d61;
+    transform: translate(-99px,17px) scale(0.9);
+  }
+  
+}
+@keyframes li-animate3 {
+  0%{
+    transform: translate(0px,0px) scale(0);
+    
+  }
+  100%{
+    background: #219d61;
+    transform: translate(-64px,77px) scale(0.9);
+  }
+  
+}
+@keyframes li-animate4 {
+  0%{
+    transform: translate(0px,0px) scale(0) ;
+    
+  }
+  100%{
+    background: #219d61;
+    transform: translate(0px,100px) scale(0.9);
+  }
+  
+}
+
+ /* ----- [#hero] ----- */
 #hero {
   width: 100%;
   border: 1px solid;
@@ -118,7 +249,7 @@ header .menu .center_border::after {
   object-fit: cover;
 }
 
-/* NEWS */
+ /* ----- [#news] ----- */
 
 #news {
   margin: 56px auto 0;
@@ -178,7 +309,7 @@ header .menu .center_border::after {
   width: 100%;
 }
 
-/* access */
+ /* ----- [#access] ----- */
 
 #access h1 {
   text-align: center;
@@ -223,7 +354,7 @@ header .menu .center_border::after {
   line-height: 19px;
 }
 
-/* footer */
+ /* ----- [footer] ----- */
 footer {
   text-align: center;
   padding-top: 8px;
@@ -238,7 +369,12 @@ footer small {
   color: #ffffff;
 }
 
+/* ------------------------------------------------------【　画面サイズ1300px以下　】------------------------------------------------------------ */
+
 @media (max-width: 1300px) {
+
+  /* ----- [#news] ----- */
+
   #news .caption {
     flex-direction: column;
     gap: 10px;
@@ -246,7 +382,12 @@ footer small {
   }
 }
 
+/* ------------------------------------------------------【　画面サイズ900px以下　】------------------------------------------------------------ */
+
 @media (max-width: 900px) {
+
+  /* ----- [header] ----- */
+
   header {
     height: 0px;
   }
@@ -263,6 +404,8 @@ footer small {
   header .menu span {
     background: FFFFFF;
   }
+
+  /* ----- [#news] ----- */
 
   #news ul {
     flex-direction: column;
@@ -293,6 +436,8 @@ footer small {
     object-fit: cover;
   }
 
+  /* ----- [#access] ----- */
+
   #access .content {
     flex-direction: column-reverse;
   }
@@ -302,17 +447,58 @@ footer small {
   }
 }
 
+/* ------------------------------------------------------【　画面サイズ530px以下　】------------------------------------------------------------ */
+
 @media (max-width: 530px) {
-  #hero {
+
+  @keyframes animate {
+    0% {
+      transform: translate(0px, 0px);
+    }
+  
+    20% {
+      border-radius: 50%;
+      background: #219d61;
+      transform: translate(0px, 0px);
+    }
+  
+    
+  
+    100%{
+      border-radius: 50%;
+      background: #219d61;
+      transform: translate(-40px, 60px);
+  
+    }
+  }
+
+  @keyframes color{
+    0%{
+      border-radius: 50%;
+      background: #219d61;
+      transform: translate(-40px, 60px);
+    }
+    100%{
+      border-radius: 50%;
+      background: #FFFFFF;
+      transform: translate(-40px, 60px);
+    }
+  }
+  
+  
+ 
+   /* ----- [#hero] ----- */
+
+   #hero {
     position: fixed;
     top: 0;
     z-index: -1;
   }
+  
+    /* ----- [#news] ----- */
 
   #news{
     margin-top: 300px;
-    
-    
   }
 
   #news li,
@@ -322,121 +508,6 @@ footer small {
     gap: 0px;
   }
 
-  .menu .center_border::before,
-  ::after {
-    transition: all 0.4s;
-  }
-
-  .menu.open .center_border::before {
-    top: 0px;
-    transform: rotate(135deg);
-  }
-
-  .menu.open .center_border::after {
-    top: 0px;
-    transform: rotate(-135deg);
-  }
-
-  .menu.open .center_border {
-    background: transparent;
-  }
-
-  .menu {
-    position: fixed;
-    overflow: hidden;
-    z-index: 999;
-  }
-
-  .circle_menu {
-    position: absolute;
-    top: -69px;
-    right: -56px;
-    width: 70px;
-    height: 70px;
-    background: #ffffff;
-    border-radius: 50%;
-    transition: all 0.6s;
-    transform: scale(0);
-  }
-
-  .circle_menu.active {
-    transform: scale(30);
-  }
-
-  .circle_bg {
-    position: fixed;
-    top: -35px;
-    right: -35px;
-    width: 70px;
-    height: 70px;
-    background: #219d61;
-    opacity: 0.95;
-    border-radius: 50%;
-    transition: all 0.6s;
-    transform: scale(0);
-  }
-  /* .active */
-  .circle_bg.active {
-    transform: scale(30);
-  }
-
-  .hub_menu {
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    font-size: 26px;
-    color: white;
-    transform: translate(-50%, -50%);
-    display: none;
-  }
-
-  .hub_menu.open {
-    display: block;
-  }
-
-  .hub_menu ul li {
-    opacity: 0;
-   
-  }
-
-  
-
-  .hub_menu.open ul li {
-    animation-name: fadeIn;
-    animation-fill-mode: forwards; /*2で解説*/
-    animation-duration: 1s; /*3で解説*/
-   
-  }
-  .hub_menu.open ul li:nth-child(1) {
-    animation-delay: 0.3s; /*6で解説*/
-  }
-  .hub_menu.open ul li:nth-child(2) {
-    animation-delay: 0.6s; /*6で解説*/
-  }
-  .hub_menu.open ul li:nth-child(3) {
-    animation-delay: 0.9s; /*6で解説*/
-  }
-  .hub_menu.open ul li:nth-child(4) {
-    animation-delay: 1.2s; /*6で解説*/
-  }
-
-  @keyframes fadeIn {
-    0% {
-      opacity: 0;
-      transform: translateY(50%);
-     
-    }
-    100% {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
-  
-
-  .hub_menu ul li + li {
-    margin-top: 20px;
-  }
-
   #news .content {
     width: 100%;
   }
@@ -444,6 +515,8 @@ footer small {
   #news .pic {
     width: 100%;
   }
+
+  /* ----- [#access] ----- */
 
   #access dl {
     margin: 0 0 20px;
@@ -460,6 +533,8 @@ footer small {
     width: 300px;
     height: 225px;
   }
+
+   /* ----- [#footer] ----- */
 
   footer small {
     font-size: 14px;
